@@ -2,7 +2,7 @@ const containerBox=document.querySelector('.container');
 
 let grid=[];
 
-createGrid(60);
+createGrid(8);
 
 function createGrid(sideLength){
 
@@ -34,14 +34,13 @@ function addPixelBoxesToContainer(sideLength){
         
         grid[i].classList.add('pixelBox');
         grid[i].addEventListener('mouseover',function (event) {
-            event.target.style.backgroundColor='red';
-        })
+            colorPixelBox(event)
+        });
         containerBox.appendChild(grid[i]);
         };   
     }
 
 function adjustPixelBoxes(pixelBoxSize){
-
 
     const allPixelBoxes= document.querySelectorAll('.pixelBox');
     allPixelBoxes.forEach((box)=> {
@@ -49,10 +48,33 @@ function adjustPixelBoxes(pixelBoxSize){
     });
     }
 
+function colorPixelBox(event) {
+        color=getRandomColor();
+        event.target.style.backgroundColor=getRandomColor();
+    }
+
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+          }
+
+
 function resetFunc(){
     alert("Reset!");
+
     let sideLength=prompt("What grid size would you like. Enter 1 dimension, e.g: 8; (for 8x8)");
+    if(sideLength>80) {
+        alert("Dimension cannot be larger than 80. Computer can't deal with big values. Enter again");
+        return
+    }
+
     containerBox.innerHTML="";
+    
     createGrid(sideLength);
 }
 // document.createElement('')

@@ -1,5 +1,5 @@
 .container{
-    margin: 10px 200px 10px 350px;
+    margin: 0px 200px 10px 350px;
     display: grid;
     width: 592px;
     height: 592px;
@@ -13,5 +13,9 @@
 }
 
 .pixelBox:hover{
-background-color:royalblue;
+/* background-color:royalblue; */
+}
+
+.resetBtn{
+    display: inline;
 }
