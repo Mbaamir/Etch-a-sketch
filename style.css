@@ -1,0 +1,17 @@
+.container{
+    margin: 10px 200px 10px 350px;
+    display: grid;
+    width: 592px;
+    height: 592px;
+}
+
+.pixelBox{
+    margin: 0;
+    box-sizing: border-box;
+    border-style:solid;
+    border-width: 1px;
+}
+
+.pixelBox:hover{
+background-color: aqua;
+}
